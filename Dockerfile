@@ -63,14 +63,8 @@ RUN wget https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linu
 ARG CALICOCTL_VERSION=v3.13.3
 RUN wget https://github.com/projectcalico/calicoctl/releases/download/${CALICOCTL_VERSION}/calicoctl && chmod +x calicoctl && mv calicoctl /usr/local/bin
 
-# Installing termshark
-ENV TERMSHARK_VERSION 2.1.1
-RUN wget https://github.com/gcla/termshark/releases/download/v${TERMSHARK_VERSION}/termshark_${TERMSHARK_VERSION}_linux_x64.tar.gz -O /tmp/termshark_${TERMSHARK_VERSION}_linux_x64.tar.gz && \
-    tar -zxvf /tmp/termshark_${TERMSHARK_VERSION}_linux_x64.tar.gz && \
-    mv termshark_${TERMSHARK_VERSION}_linux_x64/termshark /usr/local/bin/termshark && \
-    chmod +x /usr/local/bin/termshark
-
-
+# Installing grpcurl
+RUN wget https://github.com/fullstorydev/grpcurl/releases/download/v1.6.0/grpcurl_1.6.0_linux_x86_64.tar.gz && tar -vxzf grpcurl_1.6.0_linux_x86_64.tar.gz && chmod +x grpcurl && mv grpcurl /usr/local/bin
 # Settings
 ADD motd /etc/motd
 ADD profile  /etc/profile
