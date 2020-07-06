@@ -4,26 +4,26 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: kube-system
-  name: netshoot-calico-deploy
+  name: netdebug-calico-deploy
   labels:
-    app: netshoot-calico
+    app: netdebug-calico
 spec:
   selector:
     matchLabels:
-      app: netshoot
+      app: netdebug
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: netshoot
+        app: netdebug
     spec:
       serviceAccount: cni-plugin
       serviceAccountName: cni-plugin
       hostNetwork: true
       containers:
-      - image: nicolaka/netshoot
-        name: netshoot
+      - image: 0xgui/netdebug
+        name: netdebug
         command: ["ping","localhost"]
         volumeMounts:
         - mountPath: /calico-secrets

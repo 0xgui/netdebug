@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine
 
 RUN set -ex \
     && echo "http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
@@ -10,7 +10,6 @@ RUN set -ex \
     apache2-utils \
     bash \
     bind-tools \
-    bird \
     bridge-utils \
     busybox-extras \
     conntrack-tools \
@@ -21,11 +20,11 @@ RUN set -ex \
     file\
     fping \
     httpie \
+    hping3 \
     iftop \
     iperf \
     iproute2 \
     ipset \
-    iptables \
     iptraf-ng \
     iputils \
     ipvsadm \
@@ -40,33 +39,20 @@ RUN set -ex \
     nmap \
     nmap-nping \
     openssl \
-    py-crypto \
-    py2-virtualenv \
-    scapy \
     socat \
     strace \
     tcpdump \
     tcptraceroute \
-    tshark \
-    util-linux \
-    vim 
+    util-linux 
      
     
 
 # apparmor issue #14140
 RUN mv /usr/sbin/tcpdump /usr/bin/tcpdump
 
-# Installing ctop - top-like container monitor
-RUN wget https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64 -O /usr/local/bin/ctop && chmod +x /usr/local/bin/ctop
-
-# Installing calicoctl
-ARG CALICOCTL_VERSION=v3.13.3
-RUN wget https://github.com/projectcalico/calicoctl/releases/download/${CALICOCTL_VERSION}/calicoctl && chmod +x calicoctl && mv calicoctl /usr/local/bin
-
 # Installing grpcurl
 RUN wget https://github.com/fullstorydev/grpcurl/releases/download/v1.6.0/grpcurl_1.6.0_linux_x86_64.tar.gz && tar -vxzf grpcurl_1.6.0_linux_x86_64.tar.gz && chmod +x grpcurl && mv grpcurl /usr/local/bin
 # Settings
-ADD motd /etc/motd
 ADD profile  /etc/profile
 
 CMD ["/bin/bash","-l"]
