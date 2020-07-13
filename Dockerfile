@@ -51,6 +51,6 @@ RUN set -ex \
 RUN mv /usr/sbin/tcpdump /usr/bin/tcpdump
 
 # Installing grpcurl
-RUN wget https://github.com/fullstorydev/grpcurl/releases/download/v1.6.0/grpcurl_1.6.0_linux_x86_64.tar.gz && tar -vxzf grpcurl_1.6.0_linux_x86_64.tar.gz && chmod +x grpcurl && mv grpcurl /usr/local/bin && tar -vxzf grpcurl_1.6.0_linux_x86_64.tar.gz
+RUN wget https://github.com/fullstorydev/grpcurl/releases/download/v1.6.0/grpcurl_1.6.0_linux_x86_64.tar.gz && tar -vxzf grpcurl_1.6.0_linux_x86_64.tar.gz && chmod +x grpcurl && mv grpcurl /usr/local/bin && rm grpcurl_1.6.0_linux_x86_64.tar.gz
 
 CMD ["/bin/bash","-l"]
