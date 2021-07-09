@@ -50,7 +50,7 @@ RUN set -ex \
 # apparmor issue #14140
 RUN mv /usr/sbin/tcpdump /usr/bin/tcpdump
 
-# Installing grpcurl
-RUN wget https://github.com/fullstorydev/grpcurl/releases/download/v1.6.0/grpcurl_1.6.0_linux_x86_64.tar.gz && tar -vxzf grpcurl_1.6.0_linux_x86_64.tar.gz && chmod +x grpcurl && mv grpcurl /usr/local/bin && rm grpcurl_1.6.0_linux_x86_64.tar.gz
+# Installing grpcurl v1.8.1
+RUN wget https://github.com/fullstorydev/grpcurl/releases/download/v1.8.1/grpcurl_1.8.1_linux_x86_64.tar.gz && tar -vxzf grpcurl_1.8.1_linux_x86_64.tar.gz && chmod +x grpcurl && mv grpcurl /usr/local/bin && rm grpcurl_1.8.1_linux_x86_64.tar.gz
 
 CMD ["/bin/bash","-l"]
