@@ -14,11 +14,11 @@
 
 If you want to spin up a throw away container for debugging.
 
-`$ kubectl run --generator=run-pod/v1 tmp-shell --rm -i --tty --image 0xgui/netdebug -- /bin/bash`
+`$ kubectl run tmp-shell --rm -i --tty --image 0xgui/netdebug -- /bin/bash`
 
 And if you want to spin up a container on the host's network namespace.
 
-`$ kubectl run tmp-shell --generator=run-pod/v1 --rm -i --tty --overrides='{"spec": {"hostNetwork": true}}'  --image 0xgui/netdebug  -- /bin/bash`
+`$ kubectl run tmp-shell --rm -i --tty --overrides='{"spec": {"hostNetwork": true}}'  --image 0xgui/netdebug  -- /bin/bash`
 
 **Network Problems** 
 
