@@ -116,8 +116,6 @@ tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 262144 byt
 
 More info on `tcpdump` can be found [here](http://www.tcpdump.org/tcpdump_man.html).
 
-
-
 ## netstat
 
 Purpose: `netstat` is a useful tool for checking your network configuration and activity. 
@@ -150,7 +148,6 @@ There are several states that ports will be discovered as:
 - `closed`: the pathway to the port is open but there is no application listening on this port.
 - `filtered`: the pathway to the port is closed, blocked by a firewall, routing rules, or host-based rules.
 
-
 ## iftop
 
 Purpose: iftop does for network usage what top does for CPU usage. It listens to network traffic on a named interface and displays a table of current bandwidth usage by pairs of hosts.
@@ -166,7 +163,6 @@ ex: iftop -i eth0
 Purpose: drill is a tool	to designed to get all sorts of information out of the DNS.
 
 Continuing the `iperf` example, we'll use `drill` to understand how services' DNS is resolved in Docker. 
-
 
 ```
 drill -V 5 perf-test-b
@@ -205,7 +201,7 @@ perf-test-b.	600	IN	A	10.0.3.4 <<<<<<<<<<<<<<<<<<<<<<<<<< Service VIP
 
 ## netcat
 
-Purpose: a simple Unix utility that reads and writes data across network connections, using the TCP or UDP protocol. It's useful for testing and troubleshooting TCP/UDP connections. If there's a firewall rule blocking certain ports, `netcat` can be used to detect
+Purpose: a simple Unix utility that reads and writes data across network connections, using the TCP or UDP protocol. It's useful for testing and troubleshooting TCP/UDP connections. `netcat` can be used to detect if there's a firewall rule blocking certain ports.
 
 ##  iproute2
 

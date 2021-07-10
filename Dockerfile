@@ -1,3 +1,12 @@
+FROM debian:stable-slim as fetcher
+COPY build/fetch_binaries.sh /tmp/fetch_binaries.sh
+
+RUN apt-get update && apt-get install -y \
+  curl \
+  wget
+
+RUN /tmp/fetch_binaries.sh
+
 FROM alpine
 
 RUN set -ex \
@@ -7,7 +16,6 @@ RUN set -ex \
     && apk update \
     && apk upgrade \
     && apk add --no-cache \
-    apache2-utils \
     bash \
     bind-tools \
     bridge-utils \
@@ -19,8 +27,6 @@ RUN set -ex \
     ethtool \
     file\
     fping \
-    httpie \
-    hping3 \
     iftop \
     iperf \
     iproute2 \
@@ -37,17 +43,17 @@ RUN set -ex \
     nftables \
     ngrep \
     nmap \
-    nmap-nping \
     openssl \
     socat \
     strace \
     tcpdump \
-    vim \
     tcptraceroute \
-    util-linux 
-     
+    util-linux \
+    vim  
+    
 
-# Installing grpcurl v1.8.1
-RUN wget https://github.com/fullstorydev/grpcurl/releases/download/v1.8.1/grpcurl_1.8.1_linux_x86_64.tar.gz && tar -vxzf grpcurl_1.8.1_linux_x86_64.tar.gz && chmod +x grpcurl && mv grpcurl /usr/local/bin && rm grpcurl_1.8.1_linux_x86_64.tar.gz
+# Installing grpcurl
+COPY --from=fetcher /tmp/grpcurl /usr/local/bin/grpcurl
 
+# Running BASH
 CMD ["/bin/bash","-l"]
