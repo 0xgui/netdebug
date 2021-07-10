@@ -37,7 +37,6 @@ To troubleshoot these issues, `netdebug` includes a set of powerful tools as rec
 
 **Included Packages:** The following packages are included in `netdebug`. We'll go over some with some sample use-cases.
 
-    apache2-utils \
     bash \
     bind-tools \
     bridge-utils \
@@ -49,9 +48,6 @@ To troubleshoot these issues, `netdebug` includes a set of powerful tools as rec
     ethtool \
     file\
     fping \
-    grpcurl
-    httpie \
-    hping3 \
     iftop \
     iperf \
     iproute2 \
@@ -68,13 +64,13 @@ To troubleshoot these issues, `netdebug` includes a set of powerful tools as rec
     nftables \
     ngrep \
     nmap \
-    nmap-nping \
     openssl \
     socat \
     strace \
     tcpdump \
     tcptraceroute \
-    util-linux 
+    util-linux \
+    vim  
 
 ## Kubernetes Use Cases:
 Here's a list of use-cases that can help you understand when and how to use this container to solve networking issues in your Docker cluster. Please feel free to add your own use-case where you used `netdebug` to investigate, trouble-shoot, or just learn more about your environment!!!
