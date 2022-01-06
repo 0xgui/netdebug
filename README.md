@@ -225,6 +225,22 @@ default via 192.168.65.1 dev eth0  metric 204
 More info on `iproute2` [here](http://lartc.org/howto/lartc.iproute2.tour.html)
 
 
-## Feedback + Contribution
+## Swaks
+
+Swaks (Swiss Army Knife for SMTP) is a featureful, flexible, scriptable, transaction-oriented SMTP test tool. It is free to use and licensed under the GNU GPLv2.
+
+You can use it to test and troubleshoot email servers with a crystal-clear syntax:
+
+```bash
+swaks --to user@example.com \
+  --from fred@example.com --h-From: '"Fred Example" <fred@example.com>' \
+  --auth CRAM-MD5 --auth-user me@example.com \
+  --header-X-Test "test email" \
+  --data "Example body"
+```
+
+More info, examples and lots of documentation on `Swaks` [here](http://www.jetmore.org/john/code/swaks/)
+
+## Feedback & Contribution
 
 Feel free to provide feedback and contribute networking troubleshooting tools and use-cases by opening PRs.

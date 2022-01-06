@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN /tmp/fetch_binaries.sh
 
-FROM alpine
+FROM alpine:3.14
 
 RUN set -ex \
     && echo "http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
@@ -29,8 +29,10 @@ RUN set -ex \
     fping \
     iftop \
     iperf \
+    iperf3 \
     iproute2 \
     ipset \
+    iptables \
     iptraf-ng \
     iputils \
     ipvsadm \
@@ -45,12 +47,16 @@ RUN set -ex \
     nmap \
     openssl \
     socat \
+    speedtest-cli \
     strace \
     tcpdump \
     tcptraceroute \
     util-linux \
-    vim  
-    
+    vim \
+    git \
+    zsh \
+    websocat \
+    swaks
 
 # Installing grpcurl
 COPY --from=fetcher /tmp/grpcurl /usr/local/bin/grpcurl
